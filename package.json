@@ -1,0 +1,51 @@
+{
+  "name": "@enhance/enhance-data-grid",
+  "version": "0.0.1",
+  "description": "A data grid component for Enhance",
+  "main": "index.mjs",
+  "scripts": {
+    "lint": "eslint '**/**.*js' --ignore-pattern node_modules --fix",
+    "test": "npm run lint"
+  },
+  "author": "simon@begin.com",
+  "license": "Apache-2.0",
+  "eslintConfig": {
+    "extends": [
+      "@architect/eslint-config",
+      "plugin:prettier/recommended"
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "func-style": "off",
+      "prettier/prettier": [
+        "error",
+        {
+          "semi": false,
+          "singleQuote": true,
+          "tabWidth": 2,
+          "useTabs": false,
+          "trailingComma": "none",
+          "bracketSameLine": true
+        }
+      ]
+    },
+    "parserOptions": {
+      "ecmaVersion": 2020,
+      "sourceType": "module"
+    },
+    "env": {
+      "es2021": true,
+      "browser": true,
+      "node": true
+    }
+  },
+  "devDependencies": {
+    "@architect/eslint-config": "^2.0.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.6.2",
+    "prettier-eslint": "^15.0.0"
+  }
+}
