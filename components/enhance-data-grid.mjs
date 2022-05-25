@@ -1,5 +1,8 @@
 function EnhanceDataGrid({ html, state = {} }) {
-  const { columns = 'repeat(3, 1fr)' } = state.attrs
+  const { columns = 1 } = state.attrs
+  const templateColumns = Number.isInteger(Number(columns))
+    ? `repeat(${columns}, 1fr)`
+    : columns
 
   return html`
     <style>
@@ -12,7 +15,7 @@ function EnhanceDataGrid({ html, state = {} }) {
       }
       enhance-data-grid enhance-data-grid-row {
         display: grid;
-        grid-template-columns: ${columns};
+        grid-template-columns: ${templateColumns};
       }
     </style>
 
