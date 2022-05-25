@@ -1,10 +1,4 @@
-function EnhanceDataGridRow({ html, state = {} }) {
-  const { type = '' } = state.attrs
-  console.log(state.attrs)
-  if (type) {
-    console.log('we got a header')
-  }
-
+function EnhanceDataGridRow({ html }) {
   return html`
     <style>
       enhance-data-grid-row {
