@@ -1,5 +1,5 @@
 {
-  "name": "@enhance/enhance-data-grid",
+  "name": "@enhance/data-grid",
   "version": "0.0.1",
   "description": "A data grid component for Enhance",
   "main": "index.mjs",
