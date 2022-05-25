@@ -1,5 +1,5 @@
 function EnhanceDataGrid({ html, state = {} }) {
-  const { width = '100%', columns = 'repeat(3, 1fr)' } = state.attrs
+  const { columns = 'repeat(3, 1fr)' } = state.attrs
 
   return html`
     <style>
@@ -8,7 +8,7 @@ function EnhanceDataGrid({ html, state = {} }) {
         display: flex;
         position: relative;
         flex-direction: column;
-        width: ${width};
+        overflow: auto;
       }
       enhance-data-grid enhance-data-grid-row {
         display: grid;
