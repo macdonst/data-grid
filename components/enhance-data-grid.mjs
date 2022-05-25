@@ -1,8 +1,23 @@
 function EnhanceDataGrid({ html, state = {} }) {
   const { attrs, store } = state
-  const { columns, key } = attrs
+  const { columns, key, header = 'default' } = attrs
   const templateColumns = detectColumns({ columns, key, store })
   const rows = rowsFromStore({ key, store })
+  const defaultHeaderCss =
+    header === 'default'
+      ? `enhance-data-grid-row:first-of-type {
+  font-weight: 600;
+}`
+      : ''
+  const stickyHeaderCss =
+    header === 'sticky'
+      ? `enhance-data-grid-row:first-of-type {
+    font-weight: 600;
+    background-color: lightgrey;
+    position: sticky;
+    top: 0;
+  }`
+      : ''
 
   return html`
     <style>
@@ -17,6 +32,9 @@ function EnhanceDataGrid({ html, state = {} }) {
         display: grid;
         grid-template-columns: ${templateColumns};
       }
+
+      ${defaultHeaderCss}
+      ${stickyHeaderCss}
     </style>
 
     ${rows}

@@ -29,7 +29,7 @@ const str = html`<enhance-data-grid>
         <enhance-data-grid-cell>Cell 2</enhance-data-grid-cell>
         <enhance-data-grid-cell>Cell 3</enhance-data-grid-cell>
     </enhance-data-grid-row>
-    </enhance-data-grid>`
+</enhance-data-grid>`
 ```
 
 ## Usage
@@ -51,6 +51,19 @@ const str = html`<enhance-data-grid>
 </enhance-data-grid>
 ```
 
+### Fetch rows from store
+
+```javascript
+const initialState = { rowData: [
+    ['Header one', 'Header two', 'Header three'],
+    ['Cell one', 'Cell two', 'Cell three'],
+    ['Cell one', 'Cell two', 'Cell three'],
+    ['Cell one', 'Cell two', 'Cell three'],
+]}
+const html = enhance({ elements, initialState })
+const str = html`<enhance-data-grid key="rowData"></enhance-data-grid>`
+```
+
 ## API
 
 ### enhance-data-grid
@@ -60,12 +73,5 @@ const str = html`<enhance-data-grid>
 | Name | Type | Default | Description |
 | ---- | ---- | ---- | ---- |
 | `columns` | `Integer` or `String` | 1 | If the `columns` attribute is an integer then each grid row will be divided into that many equally sized columns. It would be equivalent to `grid-template-columns: repeat(columns, 1fr)`. Otherwise, if the `columns` attribute is a string then it should be a valid [grid-template-columns](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns) value. |
-
-### enhance-data-grid-row
-
-**Fields**
-
-| Name | Type | Default | Description |
-| ---- | ---- | ---- | ---- |
-| `type` | `String` |  | If the `type` attribute is not provided then no additional styling is applied to the row. If the `type` attribute is set to `header` then the rows text will appear bold. If the `type` attribute is set to `sticky-header` the then the rows text will appear in bold, a background color appears behind the header row and that row will remain at the top of the data grid when scrolling rows.  |
+| `header` | `String` | `default` | If the `header` attribute is set to `default` then the text of the first row of the data grid will appear in bold. If the `header` attribute is set to `sticky` then the text of the first row of the data grid will appear in bold, a background color appears behind the first row and that row will remain at the top of the data grid when scrolling. If the `header` attribute is set to `none` then the header row will look the same as all other rows. |
 

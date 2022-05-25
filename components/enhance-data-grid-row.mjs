@@ -8,15 +8,6 @@ function EnhanceDataGridRow({ html }) {
         font-weight: 400;
         border-bottom: 1px solid lightgrey;
       }
-      enhance-data-grid-row[type='header'],
-      enhance-data-grid-row[type='sticky-header'] {
-        font-weight: 600;
-      }
-      enhance-data-grid-row[type='sticky-header'] {
-        background-color: lightgrey;
-        position: sticky;
-        top: 0;
-      }
     </style>
 
     <slot></slot>
