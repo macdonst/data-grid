@@ -1,8 +1,8 @@
 function EnhanceDataGrid({ html, state = {} }) {
-  const { columns = 1 } = state.attrs
-  const templateColumns = Number.isInteger(Number(columns))
-    ? `repeat(${columns}, 1fr)`
-    : columns
+  const { attrs, store } = state
+  const { columns, key } = attrs
+  const templateColumns = detectColumns({ columns, key, store })
+  const rows = rowsFromStore({ key, store })
 
   return html`
     <style>
@@ -19,8 +19,37 @@ function EnhanceDataGrid({ html, state = {} }) {
       }
     </style>
 
+    ${rows}
     <slot></slot>
   `
+}
+
+function detectColumns({ columns, key, store }) {
+  if (columns) {
+    return Number.isInteger(Number(columns))
+      ? `repeat(${columns}, 1fr)`
+      : columns
+  } else if (store[key] && store[key][0]) {
+    return `repeat(${store[key][0].length}, 1fr)`
+  }
+}
+
+function rowsFromStore({ key, store }) {
+  if (store[key]) {
+    return store[key]
+      .map(
+        (row) =>
+          `<enhance-data-grid-row>${row
+            .map(
+              (cell) =>
+                `<enhance-data-grid-cell>${cell}</enhance-data-grid-cell>`
+            )
+            .join('')}</enhance-data-grid-row>`
+      )
+      .join('')
+  } else {
+    return ''
+  }
 }
 
 export { EnhanceDataGrid }
