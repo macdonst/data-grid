@@ -3,7 +3,7 @@ function EnhanceDataGridCell({ html }) {
     <style>
       :host,
       enhance-data-grid-cell {
-        padding: 12px 4px;
+        padding: 0.667rem 0.222rem;
         box-sizing: border-box;
         overflow: hidden;
         white-space: nowrap;
