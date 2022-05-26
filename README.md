@@ -73,6 +73,6 @@ const str = html`<enhance-data-grid key="rowData"></enhance-data-grid>`
 | Name | Type | Default | Description |
 | ---- | ---- | ---- | ---- |
 | `columns` | `Integer` or `String` | 1 | If the `columns` attribute is an integer then each grid row will be divided into that many equally sized columns. It would be equivalent to `grid-template-columns: repeat(columns, 1fr)`. Otherwise, if the `columns` attribute is a string then it should be a valid [grid-template-columns](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns) value. |
-| `default` | `Boolean` | `false` | If the `default` attribute is set then the text of the first row of the data grid will appear in bold. |
+| `header` | `Boolean` | `false` | If the `header` attribute is set then the text of the first row of the data grid will appear in bold. |
 | `sticky` | `Boolean` | `false` | If the `sticky` attribute is set the text of the first row of the data grid will appear in bold, a background color appears behind the first row and that row will remain at the top of the data grid when scrolling. |
 
